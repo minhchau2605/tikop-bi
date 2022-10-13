@@ -10,14 +10,11 @@
   <div class="content">
     <BaseBlock content-full>
       <div class="row">
-        <div class="col-lg-12" style="margin-bottom: 10px">
-          <button class="btn btn-outline-dark"><i class="fa fa-arrow-alt-circle-left"></i></button>
-        </div>
         <div class="col-lg-12">
           <BaseBlock title="Báo cáo chi tiết chuyển đổi"
                      content-class="text-center" class="text-center">
             <template #content>
-              <div class="table-responsive overflow-auto">
+              <div v-if="Object.keys(this.movingDetail).length" class="table-responsive overflow-auto">
                 <table class="table table-sm table-responsive border">
                   <thead>
                     <tr>
@@ -28,7 +25,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(item, key) in moving" :key="key + '-moving'">
+                    <tr v-for="(item, key) in movingDetail" :key="key + '-moving'">
                       <td colspan="3">
                         <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
                           {{ key }}
@@ -45,6 +42,7 @@
                   </tbody>
                 </table>
               </div>
+              <div v-else class="mt-sm-4">Không có dữ liệu</div>
             </template>
           </BaseBlock>
         </div>
@@ -117,13 +115,13 @@ export default {
   },
   data() {
     return {
-      aum: {}
+      movingDetail: {}
     }
   },
   methods: {
     fetch() {
-      this.store.fetchMoving();
-      this.moving = this.store.moving;
+      this.store.fetchMovingDetail();
+      this.movingDetail = this.store.movingDetail;
     }
   }
 }

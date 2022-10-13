@@ -31,11 +31,6 @@ export default {
               icon: "fa fa-user",
               to: "aum-user-collection",
             },
-            {
-              name: "Chi tiết",
-              icon: "fa fa-clipboard",
-              to: "aum-detail",
-            }
           ]
         },
         {

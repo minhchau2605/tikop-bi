@@ -9,7 +9,8 @@ export const useRealEstateReportStore = defineStore({
     aumUserCollection: {},
     aumDetail: {},
     transaction: {},
-    moving: {}
+    moving: {},
+    movingDetail: {}
   }),
   getters: {
     getReportData(state, type) {
@@ -204,6 +205,14 @@ export const useRealEstateReportStore = defineStore({
       try {
         const res = await ReportService.realEstateMoving(this.params);
         this.moving = res.data;
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async fetchMovingDetail() {
+      try {
+        const res = await ReportService.realEstateMoving(this.params);
+        this.movingDetail = res.data;
       } catch (e) {
         console.error(e);
       }

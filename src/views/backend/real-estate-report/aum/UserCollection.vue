@@ -35,12 +35,28 @@
               <div class="table-responsive overflow-auto text-center">
                 <table v-if="Object.keys(this.aum).length" class="table table-sm table-responsive border">
                   <thead>
-                  <tr>
-                    <th style="width: 10%" colspan="3"></th>
-                    <th colspan="5">Tuần 38</th>
-                    <th colspan="5">Tuần 39</th>
-                    <th colspan="5">Tuần 40</th>
-                    <th colspan="5">Tuần 41</th>
+                  <tr class="text-decoration-underline">
+                    <th colspan="3"></th>
+                    <th colspan="5">
+                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                        Tuần 39 (19/9- 25/9)
+                      </router-link>
+                    </th>
+                    <th colspan="5">
+                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                        Tuần 38 (12/9- 18/9)
+                      </router-link>
+                    </th>
+                    <th colspan="5">
+                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                        Tuần 37 (5/9- 11/9)
+                      </router-link>
+                    </th>
+                    <th colspan="5">
+                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                        Tuần 36 (1/9 - 4/9)
+                      </router-link>
+                    </th>
                   </tr>
                   <tr>
                     <th class="text-center" colspan="3"></th>
@@ -65,23 +81,27 @@
                     </template>
                   </tr>
                   <tr>
-                    <td colspan="3"><a href="#">Old User</a></td>
+                    <td colspan="3" class="text-decoration-underline">
+                      <a href="#">Old User</a>
+                    </td>
                     <template v-for="(item, key) in aum" :key="key + '-aum'">
-                      <td>{{ item["old_user"]["deposit"] }}</td>
-                      <td>{{ item["old_user"]["withdraw"] }}</td>
-                      <td>123</td>
-                      <td>456</td>
-                      <td>789</td>
+                      <td>{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
+                      <td>{{ item["old_user"]["withdraw"] }}<span class="text-success">(+5%)</span></td>
+                      <td>123<span class="text-success">(-5%)</span></td>
+                      <td>456<span class="text-danger">(-5%)</span></td>
+                      <td>789<span class="text-danger">(-5%)</span></td>
                     </template>
                   </tr>
                   <tr>
-                    <td colspan="3"><a href="#">New User</a></td>
+                    <td colspan="3" class="text-decoration-underline">
+                      <a href="#">New User</a>
+                    </td>
                     <template v-for="(item, key) in aum" :key="key + '-aum'">
-                      <td>{{ item["old_user"]["deposit"] }}</td>
-                      <td>{{ item["old_user"]["withdraw"] }}</td>
-                      <td>123</td>
-                      <td>456</td>
-                      <td>789</td>
+                      <td>{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
+                      <td>{{ item["old_user"]["withdraw"] }}<span class="text-success">(+5%)</span></td>
+                      <td>123<span class="text-success">(+5%)</span></td>
+                      <td>456<span class="text-danger">(-5%)</span></td>
+                      <td>789<span class="text-danger">(-5%)</span></td>
                     </template>
                   </tr>
                   </tbody>

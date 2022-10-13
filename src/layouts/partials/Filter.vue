@@ -1,19 +1,29 @@
 <template>
     <div class="input-group input-group-sm">
-      <select class="form-select" style="margin-right: 10px" @change="selectTime">
+      <select class="form-select me-sm-4" @change="selectTime">
         <option selected>Thời gian</option>
         <option v-for="option in defaultTimeOptions" :value="option.value">{{ option.label }}</option>
       </select>
-      <select class="form-select" v-if="filterType == 'product'">
+      <select class="form-select me-sm-4" v-if="$route.name !== 'moving-detail'">
         <option selected>Sản phẩm</option>
         <option v-for="product in products" :value="product.key">{{ product.name }}</option>
       </select>
-      <select class="form-select" v-if="filterType == 'user'">
+      <select class="form-select me-sm-4" v-if="$route.name !== 'moving-detail'">
         <option value="all_user" selected>All User</option>
         <option value="old_user">Old User</option>
         <option value="new_user">New User</option>
       </select>
-<!--      <VueSelect style="width: 200px; height: 10px; margin-right: 10px" v-model="timeSelected" :options="defaultTimeOptions"-->
+      <select class="form-select me-sm-4" v-if="$route.name === 'moving-detail'">
+        <option value="all_user" selected>Gói nhận</option>
+        <option value="old_user">Gói 1</option>
+        <option value="new_user">Gói 2</option>
+      </select>
+      <select class="form-select me-sm-4" v-if="$route.name === 'moving-detail'">
+        <option value="all_user" selected>Gói chuyển</option>
+        <option value="old_user">Gói 1</option>
+        <option value="new_user">Gói 2</option>
+      </select>
+<!--      <VueSelect v-model="timeSelected" :options="defaultTimeOptions"-->
 <!--                 placeholder="Thời gian">-->
 <!--      </VueSelect>-->
 <!--      <VueSelect v-model="productSelected" label="name" :reduce="(product) => product.id" :option="products"-->
@@ -26,6 +36,7 @@ import moment from "moment";
 import Swal from "sweetalert2";
 import VueSelect from "vue-select";
 import { useProductStore } from "@/stores/modules/product";
+import { useTemplateStore } from "@/stores/template";
 import { computed } from "vue";
 
 export default {
@@ -35,11 +46,13 @@ export default {
   },
   setup(props) {
     const productStore = useProductStore();
+    const templateStore = useTemplateStore();
     productStore.fetchProduct();
     const moduleStore = props.moduleStore;
     const products = computed(() => productStore.products);
     const filters = computed(() => props.moduleStore.params);
     return {
+      templateStore,
       productStore,
       moduleStore,
       products,
@@ -141,12 +154,9 @@ export default {
       } else if (selectTime == 4) {
         this.filter6months();
       } else if (selectTime == 99) {
-        this.$emit(this.moduleFilter);
+        this.templateStore.sideOverlay({ mode: 'toggle' });
       }
 
-      // this.$store.dispatch("realEstateReport/setParams", this.filters);
-      // this.$store.dispatch("realEstateReport/fetchAum");
-      // console.log(this.$store.state.realEstateReport.params);
       this.updateQueryString(selectTime);
     },
     updateQueryString(filterTimeType) {

@@ -3,14 +3,6 @@
   <BasePageHeading>
     <template #extra>
       <BaseFilter @filterChange="fetch" :module-store="store"></BaseFilter>
-<!--      <nav aria-label="breadcrumb">-->
-<!--        <ol class="breadcrumb breadcrumb-alt">-->
-<!--          <li class="breadcrumb-item">-->
-<!--            <a class="link-fx" href="javascript:void(0)">Tables</a>-->
-<!--          </li>-->
-<!--          <li class="breadcrumb-item" aria-current="page">Helpers</li>-->
-<!--        </ol>-->
-<!--      </nav>-->
     </template>
   </BasePageHeading>
   <!-- End Page Heading -->
@@ -41,9 +33,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(item, key) in aum" :key="key + '-aum'">
-                      <td>{{ key }}</td>
+                    <tr v-for="(item, key) in aumDetail" :key="key + '-aum'">
                       <td>{{ item["date"] }}</td>
+                      <td>{{ key }}</td>
                       <td>{{ item["deposit"] }}</td>
                       <td>{{ item["withdraw"] }}</td>
                       <td>{{ item["aum"] }}</td>
@@ -125,23 +117,14 @@ export default {
   },
   data() {
     return {
-      aum: {}
+      aumDetail: {}
     }
   },
   methods: {
     fetch() {
       this.store.fetchAumDetail();
-      this.aum = this.store.aumDetail;
+      this.aumDetail = this.store.aumDetail;
     }
   }
 }
 </script>
-<style>
-/*thead, tbody { display: block; }*/
-
-/*tbody {*/
-/*  height: 180px;       !* Just for the demo          *!*/
-/*  overflow-y: auto;    !* Trigger vertical scroll    *!*/
-/*  overflow-x: auto;  !* Hide the horizontal scroll *!*/
-/*}*/
-</style>

@@ -4,6 +4,7 @@ import { useTemplateStore } from "@/stores/template";
 import BaseLayout from "@/layouts/BaseLayout.vue";
 import BaseNavigation from "@/components/BaseNavigation.vue";
 import BaseFilter from "@/layouts/partials/Filter.vue";
+import BaseFilterSideOverlay from "@/layouts/partials/FilterSideOverlay.vue";
 
 // Grab example data
 import notifications from "@/data/notifications";
@@ -34,9 +35,10 @@ store.mainContent({ mode: "full" });
     <!-- Side Overlay Content -->
     <!-- Using the available v-slot, we can override the default Side Overlay content from layouts/partials/SideOvelay.vue -->
     <template #side-overlay-content>
-      <div class="content-side">
-        <p>Side Overlay content..</p>
-      </div>
+<!--      <div class="content-side">-->
+<!--        <p>Side Overlay content..</p>-->
+<!--      </div>-->
+      <BaseFilterSideOverlay></BaseFilterSideOverlay>
     </template>
     <!-- END Side Overlay Content -->
 
@@ -71,6 +73,14 @@ store.mainContent({ mode: "full" });
       >
         <i class="fa fa-fw fa-ellipsis-v"></i>
       </button>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-alt">
+          <li class="breadcrumb-item">
+            <a class="link-fx" href="javascript:void(0)">Báo cáo BĐS</a>
+          </li>
+          <li class="breadcrumb-item" aria-current="page">Aum</li>
+        </ol>
+      </nav>
       <!-- END Toggle Mini Sidebar -->
     </template>
     <!-- END Header Content Left -->

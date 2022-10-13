@@ -57,20 +57,10 @@ onUnmounted(() => {
       <!-- Side Header -->
       <div class="content-header border-bottom">
         <slot name="header">
-          <!-- User Avatar -->
-          <a class="img-link me-1" href="javascript:void(0)">
-            <img
-              class="img-avatar img-avatar32"
-              src="/assets/media/avatars/avatar10.jpg"
-              alt="Avatar"
-            />
-          </a>
-          <!-- END User Avatar -->
-
           <!-- User Info -->
           <div class="ms-2">
             <a class="text-dark fw-semibold fs-sm" href="javascript:void(0)"
-              >John Smith</a
+            >Lọc</a
             >
           </div>
           <!-- END User Info -->
@@ -162,8 +152,8 @@ onUnmounted(() => {
                             <div class="fw-semibold">{{ appEvent.title }}</div>
                             <div>{{ appEvent.subtitle }}</div>
                             <small class="text-muted">{{
-                              appEvent.time
-                            }}</small>
+                                appEvent.time
+                              }}</small>
                           </div>
                         </a>
                       </li>
@@ -227,7 +217,7 @@ onUnmounted(() => {
                         <label
                           class="form-check-label fs-sm"
                           for="so-settings-check1"
-                          >Show your status to all</label
+                        >Show your status to all</label
                         >
                       </div>
                     </div>
@@ -245,7 +235,7 @@ onUnmounted(() => {
                         <label
                           class="form-check-label fs-sm"
                           for="so-settings-check2"
-                          >Keep up to date</label
+                        >Keep up to date</label
                         >
                       </div>
                     </div>
@@ -264,7 +254,7 @@ onUnmounted(() => {
                           <label
                             class="form-check-label fs-sm"
                             for="so-settings-check3"
-                            >Email Notifications</label
+                          >Email Notifications</label
                           >
                         </div>
                         <div class="form-check form-switch">
@@ -279,7 +269,7 @@ onUnmounted(() => {
                           <label
                             class="form-check-label fs-sm"
                             for="so-settings-check4"
-                            >SMS Notifications</label
+                          >SMS Notifications</label
                           >
                         </div>
                       </div>
@@ -298,7 +288,7 @@ onUnmounted(() => {
                         <label
                           class="form-check-label fs-sm"
                           for="so-settings-check5"
-                          >Enable access</label
+                        >Enable access</label
                         >
                       </div>
                     </div>

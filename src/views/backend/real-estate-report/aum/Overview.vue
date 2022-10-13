@@ -1,6 +1,6 @@
 <template>
   <!-- Page Heading -->
-  <BasePageHeading>
+  <BasePageHeading title="Pldfgsdf">
     <template #extra>
       <BaseFilter @filterChange="fetch" :module-store="store"></BaseFilter>
       <!--      <nav aria-label="breadcrumb">-->
@@ -30,49 +30,65 @@
               <div class="table-responsive overflow-auto text-center">
                 <table v-if="Object.keys(this.aum).length" class="table table-sm table-responsive border">
                   <thead>
-                  <tr>
-                    <th style="width: 10%" colspan="3"></th>
-                    <th colspan="5">Tuần 38</th>
-                    <th colspan="5">Tuần 39</th>
-                    <th colspan="5">Tuần 40</th>
-                    <th colspan="5">Tuần 41</th>
-                  </tr>
-                  <tr>
-                    <th colspan="3"></th>
-                    <template v-for="(n, i) in 4">
-                      <th :class="{ 'bg-body-light': !i }">Nạp</th>
-                      <th :class="{ 'bg-body-light': !i }">Rút</th>
-                      <th :class="{ 'bg-body-light': !i }">AuM</th>
-                      <th :class="{ 'bg-body-light': !i }">AuM lũy kế</th>
-                      <th :class="{ 'bg-body-light': !i }">% nắm giữ</th>
-                    </template>
-                  </tr>
+                    <tr class="text-decoration-underline">
+                      <th colspan="3"></th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 39 (19/9- 25/9)
+                        </router-link>
+                      </th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 38 (12/9- 18/9)
+                        </router-link>
+                      </th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 37 (5/9- 11/9)
+                        </router-link>
+                      </th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 36 (1/9 - 4/9)
+                        </router-link>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th colspan="3"></th>
+                      <template v-for="(n, i) in 4">
+                        <th :class="{ 'bg-body-light': !i }">Nạp</th>
+                        <th :class="{ 'bg-body-light': !i }">Rút</th>
+                        <th :class="{ 'bg-body-light': !i }">AuM</th>
+                        <th :class="{ 'bg-body-light': !i }">AuM lũy kế</th>
+                        <th :class="{ 'bg-body-light': !i }">% nắm giữ</th>
+                      </template>
+                    </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td colspan="3">Tổng</td>
-                    <template v-for="(n, i) in 4">
-                      <td :class="{ 'bg-body-light': !i }">123</td>
-                      <td :class="{ 'bg-body-light': !i }">456</td>
-                      <td :class="{ 'bg-body-light': !i }">789</td>
-                      <td :class="{ 'bg-body-light': !i }">123</td>
-                      <td :class="{ 'bg-body-light': !i }">456</td>
-                    </template>
-                  </tr>
-                  <tr v-for="(item, key) in aum" :key="key + '-aum'">
-                    <td colspan="3">
-                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
-                        {{ key }}
-                      </router-link>
-                    </td>
-                    <template v-for="(n, i) in 4">
-                      <td :class="{ 'bg-body-light': !i }">{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
-                      <td :class="{ 'bg-body-light': !i }">{{ item["old_user"]["withdraw"] }}<span class="text-danger">(-5%)</span></td>
-                      <td :class="{ 'bg-body-light': !i }">123</td>
-                      <td :class="{ 'bg-body-light': !i }">456</td>
-                      <td :class="{ 'bg-body-light': !i }">789</td>
-                    </template>
-                  </tr>
+                    <tr>
+                      <td colspan="3" class="fw-bold">Tổng</td>
+                      <template v-for="(n, i) in 4">
+                        <td :class="{ 'bg-body-light': !i }">123</td>
+                        <td :class="{ 'bg-body-light': !i }">456</td>
+                        <td :class="{ 'bg-body-light': !i }">789</td>
+                        <td :class="{ 'bg-body-light': !i }">123</td>
+                        <td :class="{ 'bg-body-light': !i }">456</td>
+                      </template>
+                    </tr>
+                    <tr v-for="(item, key) in aum" :key="key + '-aum'">
+                      <td class="text-decoration-underline" colspan="3">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          {{ key }}
+                        </router-link>
+                      </td>
+                      <template v-for="(n, i) in 4">
+                        <td :class="{ 'bg-body-light': !i }">{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
+                        <td :class="{ 'bg-body-light': !i }">{{ item["old_user"]["withdraw"] }}<span class="text-danger">(-5%)</span></td>
+                        <td :class="{ 'bg-body-light': !i }">123</td>
+                        <td :class="{ 'bg-body-light': !i }">456</td>
+                        <td :class="{ 'bg-body-light': !i }">789</td>
+                      </template>
+                    </tr>
                   </tbody>
                 </table>
                 <span v-else>Không có dữ liệu</span>
