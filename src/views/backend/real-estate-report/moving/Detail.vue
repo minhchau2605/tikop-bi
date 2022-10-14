@@ -25,19 +25,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(item, key) in movingDetail" :key="key + '-moving'">
-                      <td colspan="3">
-                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                    <tr v-for="(item, key) in movingDetail" :key="key + '-moving-detail'">
+                      <td>
                           {{ key }}
-                        </router-link>
                       </td>
-                      <template v-for="(n, i) in 4">
-                        <td>{{ item["old_user"]["deposit"] }}</td>
-                        <td>{{ item["old_user"]["withdraw"] }}</td>
-                        <td>123</td>
-                        <td>456</td>
-                        <td>789</td>
-                      </template>
+                      <td>{{ item["from_package"] }}</td>
+                      <td>{{ item["to_package"] }}</td>
+                      <td>{{ item["amount"] }}</td>
                     </tr>
                   </tbody>
                 </table>

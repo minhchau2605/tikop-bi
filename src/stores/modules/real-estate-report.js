@@ -187,6 +187,30 @@ export const useRealEstateReportStore = defineStore({
               "aum": "0",
               "deposit_number": "3",
               "withdraw_number": "3"
+          },
+          "sp2": {
+            "date": "27/01/2022",
+            "deposit": "8,000,000",
+            "withdraw": "5,200,000",
+            "aum": "5,200,000",
+            "deposit_number": "3",
+            "withdraw_number": "3"
+          },
+          "sp3": {
+            "date": "27/01/2022",
+            "deposit": "8,000,000",
+            "withdraw": "0",
+            "aum": "0",
+            "deposit_number": "3",
+            "withdraw_number": "3"
+          },
+          "sp4": {
+            "date": "27/01/2022",
+            "deposit": "8,000,000",
+            "withdraw": "0",
+            "aum": "0",
+            "deposit_number": "3",
+            "withdraw_number": "3"
           }
         }
       } catch (e) {
@@ -195,8 +219,26 @@ export const useRealEstateReportStore = defineStore({
     },
     async fetchTransaction() {
       try {
-        const res = await ReportService.realEstateTransaction(this.params);
-        this.aum = res.data;
+        // const res = await ReportService.realEstateTransaction(this.params);
+        // this.transaction = res.data;
+        this.transaction = {
+          "sp1": {
+            "deposit_number": "3",
+            "withdraw_number": "3"
+          },
+          "sp2": {
+            "deposit_number": "3",
+            "withdraw_number": "3"
+          },
+          "sp3": {
+            "deposit_number": "3",
+            "withdraw_number": "3"
+          },
+          "sp4": {
+            "deposit_number": "3",
+            "withdraw_number": "3"
+          }
+        }
       } catch (e) {
         console.error(e);
       }
@@ -211,8 +253,29 @@ export const useRealEstateReportStore = defineStore({
     },
     async fetchMovingDetail() {
       try {
-        const res = await ReportService.realEstateMoving(this.params);
-        this.movingDetail = res.data;
+        // const res = await ReportService.realEstateMoving(this.params);
+        this.movingDetail = {
+          "27/01/2022": {
+            "from_package": "Gói 123",
+            "to_package": "Gói 456",
+            "amount": "10,000,000",
+          },
+          "28/01/2022": {
+            "from_package": "Gói 123",
+            "to_package": "Gói 456",
+            "amount": "10,000,000",
+          },
+          "29/01/2022": {
+            "from_package": "Gói 123",
+            "to_package": "Gói 456",
+            "amount": "10,000,000",
+          },
+          "30/01/2022": {
+            "from_package": "Gói 123",
+            "to_package": "Gói 456",
+            "amount": "10,000,000",
+          },
+        }
       } catch (e) {
         console.error(e);
       }

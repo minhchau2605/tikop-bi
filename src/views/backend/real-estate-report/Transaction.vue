@@ -20,6 +20,9 @@
           <BaseBlock>
             <template #content>
               <div class="table-responsive overflow-auto">
+                <select style="width: 200px; margin-bottom:10px " class="form-select me-sm-4">
+                  <option selected>Đơn vị: tỷ đồng</option>
+                </select>
                 <table class="table table-sm table-responsive border text-center">
                   <thead>
                   <tr>
@@ -30,7 +33,7 @@
                     <th colspan="2">Tuần 41</th>
                   </tr>
                   <tr>
-                    <td colspan="3">Sản phẩm</td>
+                    <th colspan="3">Sản phẩm</th>
                     <template v-for="(n, i) in 4">
                       <th>Số lần nạp</th>
                       <th>Số lần rút</th>
@@ -38,20 +41,17 @@
                   </tr>
                   </thead>
                   <tbody>
-<!--                    <tr v-for="(item, key) in transaction" :key="key + '-transaction'">-->
-<!--                      <td colspan="3">-->
-<!--                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">-->
-<!--                          {{ key }}-->
-<!--                        </router-link>-->
-<!--                      </td>-->
-<!--                      <template v-for="(n, i) in 4">-->
-<!--                        <td>{{ item["old_user"]["deposit"] }}</td>-->
-<!--                        <td>{{ item["old_user"]["withdraw"] }}</td>-->
-<!--                        <td>123</td>-->
-<!--                        <td>456</td>-->
-<!--                        <td>789</td>-->
-<!--                      </template>-->
-<!--                    </tr>-->
+                    <tr v-for="(item, key) in transaction" :key="key + '-transaction'">
+                      <td colspan="3">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          {{ key }}
+                        </router-link>
+                      </td>
+                      <template v-for="(n, i) in 4">
+                        <td>{{ item["deposit_number"] }}</td>
+                        <td>{{ item["withdraw_number"] }}</td>
+                      </template>
+                    </tr>
                   </tbody>
                 </table>
               </div>

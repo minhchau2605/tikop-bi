@@ -15,6 +15,9 @@
                      content-class="text-center" class="text-center">
             <template #content>
               <div class="table-responsive overflow-auto">
+                <select style="width: 200px; margin-bottom:10px; margin-top: 10px " class="form-select me-sm-4">
+                  <option selected>Đơn vị: tỷ đồng</option>
+                </select>
                 <table class="table table-sm table-responsive border">
                   <thead>
                   <tr>

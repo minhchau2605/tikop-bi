@@ -28,10 +28,13 @@
           <BaseBlock>
             <template #content>
               <div class="table-responsive overflow-auto text-center">
+                <select style="width: 200px; margin-bottom:10px " class="form-select me-sm-4">
+                  <option selected>Đơn vị: tỷ đồng</option>
+                </select>
                 <table v-if="Object.keys(this.aum).length" class="table table-sm table-responsive border">
                   <thead>
                     <tr class="text-decoration-underline">
-                      <th colspan="3"></th>
+                      <th style="width: 10%" colspan="3"></th>
                       <th colspan="5">
                         <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
                           Tuần 39 (19/9- 25/9)
@@ -136,8 +139,8 @@ export default {
         {
           label: "Số tiền nạp",
           fill: true,
-          backgroundColor: "rgba(21,106,210,0.5)",
-          borderColor: "rgba(21,106,210,0.5)",
+          backgroundColor: "rgba(9,237,55,0.5)",
+          borderColor: "rgba(171, 227, 125, 1)",
           pointBackgroundColor: "rgba(171, 227, 125, 1)",
           pointBorderColor: "#fff",
           pointHoverBackgroundColor: "#fff",
@@ -147,8 +150,8 @@ export default {
         {
           label: "Số tiền rút",
           fill: true,
-          backgroundColor: "rgba(234,86,11,0.5)",
-          borderColor: "rgba(234,86,11,0.5)",
+          backgroundColor: "rgb(234,14,48)",
+          borderColor: "rgba(0, 0, 0, .3)",
           pointBackgroundColor: "rgba(0, 0, 0, .3)",
           pointBorderColor: "#fff",
           pointHoverBackgroundColor: "#fff",
