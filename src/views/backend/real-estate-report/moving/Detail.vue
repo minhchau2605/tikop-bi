@@ -14,6 +14,16 @@
           <BaseBlock title="Báo cáo chi tiết chuyển đổi"
                      content-class="text-center" class="text-center">
             <template #content>
+              <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
+                <div class="flex-shrink-0">
+                  <select class="form-select form-select-sm me-sm-4">
+                    <option selected>Đơn vị: tỷ đồng</option>
+                  </select>
+                </div>
+                <div class="flex-shrink-0 mt-3 mt-sm-0">
+                  <button class="btn btn-sm btn-light"><i class="fa fa-arrow-circle-down"></i></button>
+                </div>
+              </div>
               <div v-if="Object.keys(this.movingDetail).length" class="table-responsive overflow-auto">
                 <table class="table table-sm table-responsive border">
                   <thead>

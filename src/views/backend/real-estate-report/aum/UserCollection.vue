@@ -33,80 +33,87 @@
           <BaseBlock>
             <template #content>
               <div class="table-responsive overflow-auto text-center">
-                <select style="width: 200px; margin-bottom:10px " class="form-select me-sm-4">
-                  <option selected>Đơn vị: tỷ đồng</option>
-                </select>
+                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
+                  <div class="flex-shrink-0">
+                    <select class="form-select form-select-sm me-sm-4">
+                      <option selected>Đơn vị: tỷ đồng</option>
+                    </select>
+                  </div>
+                  <div class="flex-shrink-0 mt-3 mt-sm-0">
+                    <button class="btn btn-sm btn-light"><i class="fa fa-arrow-circle-down"></i></button>
+                  </div>
+                </div>
                 <table v-if="Object.keys(this.aum).length" class="table table-sm table-responsive border">
                   <thead>
-                  <tr class="text-decoration-underline">
-                    <th style="width: 10%" colspan="3"></th>
-                    <th colspan="5">
-                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
-                        Tuần 39 (19/9- 25/9)
-                      </router-link>
-                    </th>
-                    <th colspan="5">
-                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
-                        Tuần 38 (12/9- 18/9)
-                      </router-link>
-                    </th>
-                    <th colspan="5">
-                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
-                        Tuần 37 (5/9- 11/9)
-                      </router-link>
-                    </th>
-                    <th colspan="5">
-                      <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
-                        Tuần 36 (1/9 - 4/9)
-                      </router-link>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th class="text-center" colspan="3"></th>
-                    <template v-for="(n, i) in 4">
-                      <th>Nạp</th>
-                      <th>Rút</th>
-                      <th>AuM</th>
-                      <th>AuM lũy kế</th>
-                      <th>% nắm giữ</th>
-                    </template>
-                  </tr>
+                    <tr class="text-decoration-underline">
+                      <th style="width: 10%" colspan="3"></th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 39 (19/9- 25/9)
+                        </router-link>
+                      </th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 38 (12/9- 18/9)
+                        </router-link>
+                      </th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 37 (5/9- 11/9)
+                        </router-link>
+                      </th>
+                      <th colspan="5">
+                        <router-link :to="{ path: '/real-estate-report/aum-detail', props: { filterType: 'product' } }">
+                          Tuần 36 (1/9 - 4/9)
+                        </router-link>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th colspan="3"></th>
+                      <template v-for="(n, i) in 4">
+                        <th>Nạp</th>
+                        <th>Rút</th>
+                        <th>AuM</th>
+                        <th>AuM lũy kế</th>
+                        <th>% nắm giữ</th>
+                      </template>
+                    </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td colspan="3" class="fw-bold">Sản phẩm 1</td>
-                    <template v-for="(n, i) in 4">
-                      <td>123</td>
-                      <td>456</td>
-                      <td>789</td>
-                      <td>123</td>
-                      <td>456</td>
-                    </template>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="text-decoration-underline">
-                      <a href="#">Old User</a>
-                    </td>
-                    <template v-for="(item, key) in aum" :key="key + '-aum'">
-                      <td>{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
-                      <td>{{ item["old_user"]["withdraw"] }}<span class="text-success">(+5%)</span></td>
-                      <td>123<span class="text-success">(-5%)</span></td>
-                      <td>456<span class="text-danger">(-5%)</span></td>
-                      <td>789<span class="text-danger">(-5%)</span></td>
-                    </template>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="text-decoration-underline">
-                      <a href="#">New User</a>
-                    </td>
-                    <template v-for="(item, key) in aum" :key="key + '-aum'">
-                      <td>{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
-                      <td>{{ item["old_user"]["withdraw"] }}<span class="text-success">(+5%)</span></td>
-                      <td>123<span class="text-success">(+5%)</span></td>
-                      <td>456<span class="text-danger">(-5%)</span></td>
-                      <td>789<span class="text-danger">(-5%)</span></td>
-                    </template>
-                  </tr>
+                    <tr>
+                      <td colspan="3" class="fw-bold">Sản phẩm 1</td>
+                      <template v-for="(n, i) in 4">
+                        <td>123</td>
+                        <td>456</td>
+                        <td>789</td>
+                        <td>123</td>
+                        <td>456</td>
+                      </template>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="text-decoration-underline">
+                        <a href="#">Old User</a>
+                      </td>
+                      <template v-for="(item, key) in aum" :key="key + '-aum'">
+                        <td>{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
+                        <td>{{ item["old_user"]["withdraw"] }}<span class="text-success">(+5%)</span></td>
+                        <td>123<span class="text-success">(-5%)</span></td>
+                        <td>456<span class="text-danger">(-5%)</span></td>
+                        <td>789<span class="text-danger">(-5%)</span></td>
+                      </template>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="text-decoration-underline">
+                        <a href="#">New User</a>
+                      </td>
+                      <template v-for="(item, key) in aum" :key="key + '-aum'">
+                        <td>{{ item["old_user"]["deposit"] }}<span class="text-success">(+5%)</span></td>
+                        <td>{{ item["old_user"]["withdraw"] }}<span class="text-success">(+5%)</span></td>
+                        <td>123<span class="text-success">(+5%)</span></td>
+                        <td>456<span class="text-danger">(-5%)</span></td>
+                        <td>789<span class="text-danger">(-5%)</span></td>
+                      </template>
+                    </tr>
                   </tbody>
                 </table>
                 <span v-else>Không có dữ liệu</span>
@@ -154,7 +161,7 @@ export default {
         {
           label: "Số tiền nạp",
           fill: true,
-          backgroundColor: "rgba(9,237,55,0.5)",
+          backgroundColor: "rgba(14,123,232,0.5)",
           borderColor: "rgba(171, 227, 125, 1)",
           pointBackgroundColor: "rgba(171, 227, 125, 1)",
           pointBorderColor: "#fff",
@@ -165,7 +172,7 @@ export default {
         {
           label: "Số tiền rút",
           fill: true,
-          backgroundColor: "rgb(234,14,48)",
+          backgroundColor: "rgb(234,89,11)",
           borderColor: "rgba(0, 0, 0, .3)",
           pointBackgroundColor: "rgba(0, 0, 0, .3)",
           pointBorderColor: "#fff",

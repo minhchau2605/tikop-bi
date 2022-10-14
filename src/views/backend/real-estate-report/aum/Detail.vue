@@ -20,6 +20,16 @@
           <BaseBlock>
             <template #content>
               <div class="table-responsive overflow-auto">
+                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
+                  <div class="flex-shrink-0">
+                    <select class="form-select form-select-sm me-sm-4">
+                      <option selected>Đơn vị: tỷ đồng</option>
+                    </select>
+                  </div>
+                  <div class="flex-shrink-0 mt-3 mt-sm-0">
+                    <button class="btn btn-sm btn-light"><i class="fa fa-arrow-circle-down"></i></button>
+                  </div>
+                </div>
                 <table class="table table-sm table-responsive border text-center">
                   <thead>
                     <tr>
@@ -86,9 +96,9 @@ export default {
       labels: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
       datasets: [
         {
-          label: "Last Week",
+          label: "Số tiền nạp",
           fill: true,
-          backgroundColor: "rgba(171, 227, 125, .5)",
+          backgroundColor: "rgba(14,123,232,0.5)",
           borderColor: "rgba(171, 227, 125, 1)",
           pointBackgroundColor: "rgba(171, 227, 125, 1)",
           pointBorderColor: "#fff",
@@ -97,9 +107,9 @@ export default {
           data: [15, 16, 20, 25, 23, 25, 32],
         },
         {
-          label: "This Week",
+          label: "Số tiền rút",
           fill: true,
-          backgroundColor: "rgba(0, 0, 0, .1)",
+          backgroundColor: "rgb(234,89,11)",
           borderColor: "rgba(0, 0, 0, .3)",
           pointBackgroundColor: "rgba(0, 0, 0, .3)",
           pointBorderColor: "#fff",

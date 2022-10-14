@@ -28,9 +28,16 @@
           <BaseBlock>
             <template #content>
               <div class="table-responsive overflow-auto text-center">
-                <select style="width: 200px; margin-bottom:10px " class="form-select me-sm-4">
-                  <option selected>Đơn vị: tỷ đồng</option>
-                </select>
+                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
+                  <div class="flex-shrink-0">
+                    <select class="form-select form-select-sm me-sm-4">
+                      <option selected>Đơn vị: tỷ đồng</option>
+                    </select>
+                  </div>
+                  <div class="flex-shrink-0 mt-3 mt-sm-0">
+                    <button class="btn btn-sm btn-light"><i class="fa fa-arrow-circle-down"></i></button>
+                  </div>
+                </div>
                 <table v-if="Object.keys(this.aum).length" class="table table-sm table-responsive border">
                   <thead>
                     <tr class="text-decoration-underline">
@@ -139,7 +146,7 @@ export default {
         {
           label: "Số tiền nạp",
           fill: true,
-          backgroundColor: "rgba(9,237,55,0.5)",
+          backgroundColor: "rgba(14,123,232,0.5)",
           borderColor: "rgba(171, 227, 125, 1)",
           pointBackgroundColor: "rgba(171, 227, 125, 1)",
           pointBorderColor: "#fff",
@@ -150,7 +157,7 @@ export default {
         {
           label: "Số tiền rút",
           fill: true,
-          backgroundColor: "rgb(234,14,48)",
+          backgroundColor: "rgb(234,89,11)",
           borderColor: "rgba(0, 0, 0, .3)",
           pointBackgroundColor: "rgba(0, 0, 0, .3)",
           pointBorderColor: "#fff",
